@@ -43,6 +43,5 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
     click_on "Logout"
     assert_equal login_path, current_path
-
   end
 end
