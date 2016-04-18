@@ -3,7 +3,7 @@ function renderLink(link) {
      `<div class='link center' link-id=${link.id}>
       <h6 class='title'>${link.title}</h6>
       <h6 class='url'>${link.url}</h6>
-      <p class='viewed'>${link.viewed}</p>
+      ${viewedStatus(link)}
     </div>`
     )
 }
