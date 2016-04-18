@@ -2,8 +2,12 @@
 
 one:
   title: MyString
-  link: MyString
+  url: MyString
+  viewed: MyString
+  user_id: 
 
 two:
   title: MyString
-  link: MyString
+  url: MyString
+  viewed: MyString
+  user_id: 

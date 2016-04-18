@@ -1,10 +1,18 @@
-<h1>links index</h1>
+<h1 class="center">links index</h1>
 
-  <%= form_for(@link) do |f| %>
+<div class="container">
+  <%= form_for(Link.new) do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title %>
-    <%= f.label :link %>
-    <%= f.password_field :link %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
     <%= f.submit "Submit Link" %>
   <% end %>
+
+  <% @links.each do |link| %>
+    <%= link.title %>
+    <%= link.url %>
+    <%= link.viewed %>
+  <% end %>
 </div>
+
