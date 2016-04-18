@@ -1,1 +1,10 @@
 <h1>links index</h1>
+
+  <%= form_for(@link) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :link %>
+    <%= f.password_field :link %>
+    <%= f.submit "Submit Link" %>
+  <% end %>
+</div>
