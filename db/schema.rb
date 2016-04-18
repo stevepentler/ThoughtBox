@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160418170638) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "links", force: :cascade do |t|
     t.string   "title"
     t.string   "url"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160418170638) do
     t.datetime "updated_at",             null: false
   end
 
-  add_index "links", ["user_id"], name: "index_links_on_user_id"
+  add_index "links", ["user_id"], name: "index_links_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
@@ -31,4 +34,5 @@ ActiveRecord::Schema.define(version: 20160418170638) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "links", "users"
 end
