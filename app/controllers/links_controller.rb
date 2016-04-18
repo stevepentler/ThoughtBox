@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   end
 
   def create
-    @link = Link.new(link_params)
+    @link = current_user.links.new(link_params)
     if @link.save
       flash[:notice] = "Splendid Addition!"
       redirect_to links_path
@@ -17,6 +17,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url)
+    params.require(:link).permit(:title, :url, :user)
   end
 end
