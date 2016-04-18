@@ -16,7 +16,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
   end
 
-  test 'unauthenticated user can login' do
+  test 'authenticated user can login' do
     user = User.create(email: "stevepentler@gmail.com",
                         password: "GoBadgers")
     visit root_path
@@ -28,6 +28,21 @@ class UserLoginTest < ActionDispatch::IntegrationTest
     click_on "Welcome Back"
 
     assert_equal links_path, current_path
+
+  end
+
+  test 'authenticated user can logout' do
+    user = User.create(email: "stevepentler@gmail.com",
+                        password: "GoBadgers")
+    visit root_path
+    click_on "Login"
+    fill_in "session[email]", with: user.email
+    fill_in "session[password]", with: user.password
+    click_on "Welcome Back"
+    assert_equal links_path, current_path
+
+    click_on "Logout"
+    assert_equal login_path, current_path
 
   end
 end
