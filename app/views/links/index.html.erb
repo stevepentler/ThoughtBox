@@ -9,10 +9,11 @@
     <%= f.submit "Submit Link" %>
   <% end %>
 
-  <% @links.each do |link| %>
-    <%= link.title %>
-    <%= link.url %>
-    <%= link.viewed %>
-  <% end %>
+<span>Search Existing Ideas</span>
+<input type='text' id='search'>
+
+<button class="btn" id="filter-viewed">View Unread</button>
+
+  <div id="links-index"></div>
 </div>
 
