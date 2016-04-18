@@ -1,0 +1,11 @@
+<div class="container">
+  <%= form_for @user do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.label :password %>
+    <%= f.password_field :password_digest %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_digest %>
+    <%= f.submit "Create Account" %>
+  <% end %>
+</div>
