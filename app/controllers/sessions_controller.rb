@@ -1,6 +1,10 @@
 class SessionsController < ApplicationController
+
   def new
-    @user = User.new
+    if current_user
+      redirect_to links_path
+    end
+
   end
 
   def create
