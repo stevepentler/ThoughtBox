@@ -1,5 +1,6 @@
 function viewedLink(status) {
   $('#link-index').delegate(status, 'click', function() {
+    debugger
     let $link = $(this).closest('.link');
     let previousState = $idea.find('p').text();
     let newViewState = updatedState(status, previousState);
@@ -7,7 +8,7 @@ function viewedLink(status) {
       link: {viewed: newViewState}
     }
   })
-  viewStatusCall(link, linkParams, newViewState)
+  // viewStatusCall($link, linkParams, newViewState)
 }
 
 function viewStatusCall(link, linkParams, newViewState) {
