@@ -5,8 +5,9 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find(params[:id])
-    respond_with @link.update(idea_params)
+    link = Link.find(params[:id])
+    link.update(idea_params)
+    respond_with @link, json: link
   end
 
   private

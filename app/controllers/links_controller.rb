@@ -9,10 +9,27 @@ class LinksController < ApplicationController
       flash[:notice] = "Splendid Addition!"
       redirect_to links_path
     else
-      flash[:error] = "Invalid link, try again!"
+      flash[:error] = "Invalid link, Try Again!"
       redirect_to links_path
     end
   end
+
+  def edit
+    binding.pry
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    if link.update(link_params)
+      flash[:notice] = "Updated!"
+      redirect_to links_path
+    else
+      flash[:error] = "Invalid Link! Try Again!"
+      redirect_to links_path
+    end
+  end
+
 
   private
 

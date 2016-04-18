@@ -9,17 +9,17 @@ function editLink(selector) {
 }
 
 function captureEdit(link, editableLink) {
-  $(document).on('keypress', function(event) {
-    if(event.which === 13) {
+  $(document).keypress(function(event){
+    if(event.which == 13) {
       var linkParams = {
         link: {
           title: link.find('.title').text(),
-          url: link.find('.url').text(),
+          url: link.find('.url').text()
         }
-      }
-    }
-    callEdit(link, linkParams);
-    editableLink.contentEditable = false;
+      };
+      callEdit(link, linkParams);
+      editableLink.contentEditable = false;
+    };
   });
 }
 
@@ -29,7 +29,7 @@ function callEdit(link, linkParams) {
     url: `/api/v1/links/${link.attr('link-id')}`,
     data: linkParams,
     success: function() {
-      console.log("updated link")
+      console.log("updated link to" + link.find('.title').text())
     },
     error: function(error) {
       console.log(error.responseText);
