@@ -2,7 +2,6 @@ function viewedLink(status) {
   $('#links-index').delegate(status, 'click', function() {
     let $link = $(this).closest('.link');
     let previousState = $(this).closest('.link').find('p').text()
-    console.log(previousState)
     let newViewState = updatedStatus(previousState);
     let linkParams = {
       link: {viewed: newViewState}
