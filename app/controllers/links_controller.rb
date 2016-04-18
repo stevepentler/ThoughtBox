@@ -1,4 +1,5 @@
 class LinksController < ApplicationController
+  before_action :authorize
   def index
     @links = current_user.links ||= []
   end
@@ -18,18 +19,6 @@ class LinksController < ApplicationController
     binding.pry
     @link = Link.find(params[:id])
   end
-
-  def update
-    @link = Link.find(params[:id])
-    if link.update(link_params)
-      flash[:notice] = "Updated!"
-      redirect_to links_path
-    else
-      flash[:error] = "Invalid Link! Try Again!"
-      redirect_to links_path
-    end
-  end
-
 
   private
 
