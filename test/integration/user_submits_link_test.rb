@@ -28,7 +28,7 @@ class UserSubmitsLinkTest < ActionDispatch::IntegrationTest
     end
 
     assert links_path, current_path
-    assert page.has_content?("Invalid link, try again!")
+    assert page.has_content?("Invalid link, Try Again!")
   end
 
 
