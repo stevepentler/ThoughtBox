@@ -7,6 +7,3 @@ function renderLink(link) {
     </div>`
     )
 }
-
-
-

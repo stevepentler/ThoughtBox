@@ -25,6 +25,7 @@ function viewStatusCall(link, linkParams, newViewState) {
 }
 
 function updatedStatus(previousState) {
+  console.log(previousState)
   if (previousState === "Mark as Unread") {
     return `Mark as Read`
   } else {

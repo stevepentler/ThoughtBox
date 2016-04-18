@@ -3,6 +3,7 @@ class Link < ActiveRecord::Base
 
   validates :title, presence: true
   validates :url, url: true
+  validates :viewed, presence: true
 
   enum viewed: ["Mark as Read", "Mark as Unread"]
 end

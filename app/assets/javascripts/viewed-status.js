@@ -1,12 +1,12 @@
-function distinguishLinks() {
-  let linksIndex = $('#links-index').children();
-  $.each(linksIndex, function(index, link){
-    colorLink(link);
-  })
-}
+// function distinguishLinks() {
+//   let linksIndex = $('#links-index').children();
+//   $.each(linksIndex, function(index, link){
+//     colorLink(link);
+//   })
+// }
 
-function colorLink(link) {
-  if (link.viewed == "Mark as Read") {
-    $(`.${link.id}`).css("color", "red")
-  }
-}
+// function colorLink(link) {
+//   if (link.viewed == "Mark as Read") {
+//     $(`.${link}`).css("color", "red")
+//   }
+// }

@@ -3,7 +3,7 @@ $(document).ready(function(){
   editLink('.title');
   editLink('.url');
   searchLinks();
-  toggleViewed();
+  // toggleViewed();
   viewedLink('.viewed');
-  distinguishLinks();
+  // distinguishLinks();
 });
