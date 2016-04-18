@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Sign Up</h1>
 
-  <%= form_for(User.new) do |f| %>
+  <%= form_for(@user) do |f| %>
     <%= f.label :email_address %>
     <%= f.text_field :email %>
     <%= f.label :password %>
