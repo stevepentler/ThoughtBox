@@ -16,6 +16,19 @@ class UserSubmitsLinkTest < ActionDispatch::IntegrationTest
     end
 
     assert links_path, current_path
+    assert page.has_content?("Splendid Addition!")
+  end
+
+  test "user submits invalid link" do
+    login
+    assert_difference 'Link.count', 0 do
+      fill_in "link[title]", with: "Invalid"
+      fill_in "link[url]", with: "blah blah blah"
+      click_on "Submit Link"
+    end
+
+    assert links_path, current_path
+    assert page.has_content?("Invalid link, try again!")
   end
 
 
