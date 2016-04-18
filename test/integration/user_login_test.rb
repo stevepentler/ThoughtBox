@@ -33,7 +33,7 @@ class UserLoginTest < ActionDispatch::IntegrationTest
 
   test 'authenticated user can logout' do
     user = User.create(email: "stevepentler@gmail.com",
-                        password: "GoBadgers")
+                       password: "GoBadgers")
     visit root_path
     click_on "Login"
     fill_in "session[email]", with: user.email

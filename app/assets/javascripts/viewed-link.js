@@ -1,14 +1,14 @@
 function viewedLink(status) {
-  $('#link-index').delegate(status, 'click', function() {
-    debugger
+  $('#links-index').delegate(status, 'click', function() {
     let $link = $(this).closest('.link');
-    let previousState = $idea.find('p').text();
-    let newViewState = updatedState(status, previousState);
+    let previousState = $(this).closest('.link').find('p').text()
+    console.log(previousState)
+    let newViewState = updatedStatus(previousState);
     let linkParams = {
       link: {viewed: newViewState}
     }
-  })
-  // viewStatusCall($link, linkParams, newViewState)
+  viewStatusCall($link, linkParams, newViewState)
+  });
 }
 
 function viewStatusCall(link, linkParams, newViewState) {
@@ -17,8 +17,7 @@ function viewStatusCall(link, linkParams, newViewState) {
     url: `/api/v1/links/${link.attr('link-id')}`,
     data: linkParams,
     success: function() {
-      console.log("updated views status")
-      link.find('p').innerHTML = newViewState
+      link.find('p').text(newViewState);
     },
     error: function(error) {
       console.log(error.responseText);
@@ -26,13 +25,10 @@ function viewStatusCall(link, linkParams, newViewState) {
   })
 }
 
-function updatedStatus(status, previousState) {
-  console.log(status)
-  if (status === true) {
-    return `<p>Mark as Unread</p>`
+function updatedStatus(previousState) {
+  if (previousState === "Mark as Unread") {
+    return `Mark as Read`
   } else {
-    return `<p>Mark as Read</p>`
+    return `Mark as Unread`
   }
 };
-
-viewedLink('.viewed')

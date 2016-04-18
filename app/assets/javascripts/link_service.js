@@ -3,4 +3,6 @@ $(document).ready(function(){
   editLink('.title');
   editLink('.url');
   searchLinks();
+  // toggleViewed();
+  viewedLink('.viewed');
 });

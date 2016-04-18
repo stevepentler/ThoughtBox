@@ -4,5 +4,5 @@ class Link < ActiveRecord::Base
   validates :title, presence: true
   validates :url, url: true
 
-  enum viewed: [:false, :true]
+  enum viewed: ["Mark as Read", "Mark as Unread"]
 end

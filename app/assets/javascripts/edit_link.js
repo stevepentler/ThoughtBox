@@ -9,8 +9,9 @@ function editLink(selector) {
 }
 
 function captureEdit(link, editableLink) {
-  $(document).keypress(function(event){
-    if(event.which == 13) {
+  $(document).on('keypress click', function(event){
+    let clicks = $(this).data('clicks');
+    if(event.type === 'keypress' && event.which === 13) {
       var linkParams = {
         link: {
           title: link.find('.title').text(),

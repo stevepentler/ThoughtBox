@@ -2,7 +2,6 @@ function searchLinks() {
   $("#search").on('keyup', function() {
     let entry = $(this).val().toLowerCase();
     let linksIndex = $('#links-index').children();
-    console.log(linksIndex)
     searchEntry(linksIndex, entry);
   });
 }
