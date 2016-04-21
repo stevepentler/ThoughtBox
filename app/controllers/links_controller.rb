@@ -1,8 +1,5 @@
 class LinksController < ApplicationController
   before_action :authorize
-  def index
-    @links = current_user.links ||= []
-  end
 
   def create
     @link = current_user.links.new(link_params)
@@ -13,11 +10,6 @@ class LinksController < ApplicationController
       flash[:error] = "Invalid link, Try Again!"
       redirect_to links_path
     end
-  end
-
-  def edit
-    binding.pry
-    @link = Link.find(params[:id])
   end
 
   private
